@@ -1,0 +1,77 @@
+<!-- %Tag(FULL)%-->
+<launch>
+
+  <node pkg="rosbag" type="record" name="rosbag_record_EpisodeStats"
+       args="record -o /home/dev/bagfiles/pendulum/EpisodeStats">
+  </node>
+
+ <!-- Learner parameters and node -->
+  <param name="dKnown" type="double" value="0.1" />
+  <param name="epsilonA" type="double" value="0.001" />
+  <param name="epsilonB" type="double" value="0.1" />
+  <param name="normOrder" value="2" />
+  <node launch-prefix="xterm -e" respawn="true" pkg="concurrent_pac"
+        type="runLearner.py" name="learner" >
+  </node>
+
+ <!-- Policy parameters and node -->
+  <node launch-prefix="xterm -e" respawn="true" pkg="concurrent_pac"
+        type="runPolicy.py" name="policy" >
+  </node>
+
+ <!-- Domain parameters and node(s) PendulumSwingup, HIVtreatment -->
+  <param name="domain" type="string" value="PendulumSwingup" />
+  <param name="stepsPerSecond" type="double" value="10.0" />
+  <param name="maxStepsPerEpisode" type="int" value="200" />
+  <param name="maxNumberOfEpisodes" type="int" value="128" />
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess1" >
+  </node>
+<!--  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess2" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess3" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess4" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess5" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess6" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess7" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess8" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess9" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess10" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess11" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess12" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess13" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess14" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess15" >
+  </node>
+  <node launch-prefix="xterm -e" respawn="false" pkg="concurrent_pac"
+        type="runDomain.py" name="domainProcess16" >
+  </node>-->
+
+</launch>
+<!-- %EndTag(FULL)%-->

@@ -1,0 +1,8 @@
+---
+uint32 stateLength
+uint32 actionLength
+uint32 MDPLength
+
+float32 gamma
+float32 Rmax
+float32 Qmax

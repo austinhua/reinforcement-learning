@@ -1,0 +1,9 @@
+---
+float32 Qmax
+float32 dKnown
+float32 normOrder
+float32[] regularizer
+uint32 UstrideLength
+float32[] regularizedU
+float32[] EpsilonBK
+float32[] F

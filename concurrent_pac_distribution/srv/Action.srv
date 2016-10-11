@@ -1,0 +1,6 @@
+float32[] state
+float32[] MDP
+uint32 AsStrideLength
+float32[] As
+---
+float32[] action

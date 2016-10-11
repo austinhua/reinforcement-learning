@@ -1,0 +1,4 @@
+int32 episodeNo
+int32 numberOfsteps
+float32 accumulatedReward
+float32 accumulatedDiscountedReward
